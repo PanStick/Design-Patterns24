@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Wzorce_Projektowe.Observer;
 using Wzorce_Projektowe.Iterator;
 using Wzorce_Projektowe.MediatorSpace;
+using Wzorce_Projektowe.Prototype;
 
 namespace Wzorce_Projektowe
 {
@@ -26,16 +27,15 @@ namespace Wzorce_Projektowe
             //current.Display();
             //statistics.DisplayStats();
 
-            List<TreeNode> nodes = [new(1), new(3), new(2)];
-            nodes[0].Left = nodes[2];
-            nodes[0].Right = nodes[1];
-            BinaryTree2 tree = new(nodes);
-            foreach (TreeNode i in tree)
-                Console.WriteLine(i.Val);
-            BinaryTree tree1 = new(nodes);
-            
-            
-
+            //List<TreeNode> nodes = [new(1), new(3), new(2)];
+            //nodes[0].Left = nodes[2];
+            //nodes[0].Right = nodes[1];
+            ////BinaryTree2 tree = new(nodes);
+            ////foreach (TreeNode i in tree)
+            ////    Console.WriteLine(i.Val);
+            //BinaryTree tree1 = new(nodes);
+            //Console.WriteLine(tree1.GetNext().Val);
+            //Console.WriteLine(tree1.GetNext().Val);
 
 
             //OrderProcesser processer = new();
@@ -50,8 +50,19 @@ namespace Wzorce_Projektowe
 
             //receiver.ReceiveOrder();
             //verifier.VerifyOrder();
-            //processer.ProcessOrder();
+            List<Multimedia> myMultimedia = [];
+            myMultimedia.Add(new Picture("1"));
+            myMultimedia.Add(new Music("2"));
+            myMultimedia.Add(new Movie("3"));
 
+            List<Multimedia> multimediaCopy = [];
+
+            foreach (var item in myMultimedia)
+                multimediaCopy.Add(item.Clone());
+
+            myMultimedia.Add(new Picture("4"));
+            foreach (var item in multimediaCopy)
+                Console.WriteLine(item.ToString());
         }
     }
 }
