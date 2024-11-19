@@ -9,7 +9,9 @@ using Wzorce_Projektowe.Observer;
 using Wzorce_Projektowe.Iterator;
 using Wzorce_Projektowe.MediatorSpace;
 using Wzorce_Projektowe.Prototype;
+using System.Net.NetworkInformation;
 using Wzorce_Projektowe.Strategy;
+using Wzorce_Projektowe.Template_Method;
 
 namespace Wzorce_Projektowe
 {
@@ -72,14 +74,12 @@ namespace Wzorce_Projektowe
             Console.WriteLine(Context.GetContext(arr2));
             Console.WriteLine(Context.GetContext(arr3));
 
-            List<Multimedia> multimediaCopy = [];
+            FightingPokemon pokemon = new FightingPokemon("test", 100, 20, 30);
+            PoisonPokemon pokemon2 = new PoisonPokemon("test2", 100, 20, 30);
+            Console.WriteLine(pokemon.CalcDamage());
+            Console.WriteLine(pokemon2.CalcDamage());
 
-            foreach (var item in myMultimedia)
-                multimediaCopy.Add(item.Clone());
 
-            myMultimedia.Add(new Picture("4"));
-            foreach (var item in multimediaCopy)
-                Console.WriteLine(item.ToString());
         }
     }
 }
