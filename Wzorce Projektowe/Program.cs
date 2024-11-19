@@ -9,6 +9,7 @@ using Wzorce_Projektowe.Observer;
 using Wzorce_Projektowe.Iterator;
 using Wzorce_Projektowe.MediatorSpace;
 using Wzorce_Projektowe.Prototype;
+using Wzorce_Projektowe.Strategy;
 
 namespace Wzorce_Projektowe
 {
@@ -50,10 +51,26 @@ namespace Wzorce_Projektowe
 
             //receiver.ReceiveOrder();
             //verifier.VerifyOrder();
-            List<Multimedia> myMultimedia = [];
-            myMultimedia.Add(new Picture("1"));
-            myMultimedia.Add(new Music("2"));
-            myMultimedia.Add(new Movie("3"));
+            //List<Multimedia> myMultimedia = [];
+            //myMultimedia.Add(new Picture("1"));
+            //myMultimedia.Add(new Music("2"));
+            //myMultimedia.Add(new Movie("3"));
+
+            //List<Multimedia> multimediaCopy = [];
+
+            //foreach (var item in myMultimedia)
+            //    multimediaCopy.Add(item.Clone());
+
+            //myMultimedia.Add(new Picture("4"));
+            //foreach (var item in multimediaCopy)
+            //    Console.WriteLine(item.ToString());
+
+            int[] arr1 = new int[9];
+            int[] arr2 = new int[99];
+            int[] arr3 = new int[101];
+            Console.WriteLine(Context.GetContext(arr1));
+            Console.WriteLine(Context.GetContext(arr2));
+            Console.WriteLine(Context.GetContext(arr3));
 
             List<Multimedia> multimediaCopy = [];
 
