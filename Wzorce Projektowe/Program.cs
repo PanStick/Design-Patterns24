@@ -12,6 +12,7 @@ using Wzorce_Projektowe.Prototype;
 using System.Net.NetworkInformation;
 using Wzorce_Projektowe.Strategy;
 using Wzorce_Projektowe.Template_Method;
+using Wzorce_Projektowe.Decorator;
 
 namespace Wzorce_Projektowe
 {
@@ -67,17 +68,20 @@ namespace Wzorce_Projektowe
             //foreach (var item in multimediaCopy)
             //    Console.WriteLine(item.ToString());
 
-            int[] arr1 = new int[9];
-            int[] arr2 = new int[99];
-            int[] arr3 = new int[101];
-            Console.WriteLine(Context.GetContext(arr1));
-            Console.WriteLine(Context.GetContext(arr2));
-            Console.WriteLine(Context.GetContext(arr3));
+            //int[] arr1 = new int[9];
+            //int[] arr2 = new int[99];
+            //int[] arr3 = new int[101];
+            //Console.WriteLine(Context.GetContext(arr1));
+            //Console.WriteLine(Context.GetContext(arr2));
+            //Console.WriteLine(Context.GetContext(arr3));
 
-            FightingPokemon pokemon = new FightingPokemon("test", 100, 20, 30);
-            PoisonPokemon pokemon2 = new PoisonPokemon("test2", 100, 20, 30);
-            Console.WriteLine(pokemon.CalcDamage());
-            Console.WriteLine(pokemon2.CalcDamage());
+            //FightingPokemon pokemon = new FightingPokemon("test", 100, 20, 30);
+            //PoisonPokemon pokemon2 = new PoisonPokemon("test2", 100, 20, 30);
+            //Console.WriteLine(pokemon.CalcDamage());
+            //Console.WriteLine(pokemon2.CalcDamage());
+
+            var dec = new BottleHolder(new Speedometer(new Bell(new Bike())));
+            dec.Create();
 
 
         }
