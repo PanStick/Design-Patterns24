@@ -13,6 +13,8 @@ using System.Net.NetworkInformation;
 using Wzorce_Projektowe.Strategy;
 using Wzorce_Projektowe.Template_Method;
 using Wzorce_Projektowe.Decorator;
+using Wzorce_Projektowe.Factory_Method;
+using Wzorce_Projektowe.Factory;
 
 namespace Wzorce_Projektowe
 {
@@ -80,8 +82,15 @@ namespace Wzorce_Projektowe
             //Console.WriteLine(pokemon.CalcDamage());
             //Console.WriteLine(pokemon2.CalcDamage());
 
-            var dec = new BottleHolder(new Speedometer(new Bell(new Bike())));
-            dec.Create();
+            //var dec = new BottleHolder(new Speedometer(new Bell(new Bike())));
+            //dec.Create();
+
+            var sq = SquareCreator.Factory();
+            var rect = RectangleCreator.Factory();
+            var tr = TriangleCreator.Factory();
+            sq.Draw();
+            rect.Draw();
+            tr.Draw();
 
 
         }
