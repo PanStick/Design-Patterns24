@@ -92,6 +92,10 @@ namespace Wzorce_Projektowe
             rect.Draw();
             tr.Draw();
 
+            var smallSquare = SmallFigureFactory.CreateSquare();
+            smallSquare.Draw();
+            var hugeSquare = HugeFigureFactory.CreateSquare();
+            hugeSquare.Draw();
 
         }
     }
