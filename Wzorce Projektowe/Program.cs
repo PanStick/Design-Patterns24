@@ -15,6 +15,9 @@ using Wzorce_Projektowe.Template_Method;
 using Wzorce_Projektowe.Decorator;
 using Wzorce_Projektowe.Factory_Method;
 using Wzorce_Projektowe.Factory;
+using Wzorce_Projektowe.Builder;
+using Wzorce_Projektowe.Proxy;
+using Wzorce_Projektowe.Command;
 
 namespace Wzorce_Projektowe
 {
@@ -85,17 +88,75 @@ namespace Wzorce_Projektowe
             //var dec = new BottleHolder(new Speedometer(new Bell(new Bike())));
             //dec.Create();
 
-            var sq = SquareCreator.Factory();
-            var rect = RectangleCreator.Factory();
-            var tr = TriangleCreator.Factory();
-            sq.Draw();
-            rect.Draw();
-            tr.Draw();
+            //var sq = SquareCreator.Factory();
+            //var rect = RectangleCreator.Factory();
+            //var tr = TriangleCreator.Factory();
+            //sq.Draw();
+            //rect.Draw();
+            //tr.Draw();
 
-            var smallSquare = SmallFigureFactory.CreateSquare();
-            smallSquare.Draw();
-            var hugeSquare = HugeFigureFactory.CreateSquare();
-            hugeSquare.Draw();
+            //var smallSquare = SmallFigureFactory.CreateSquare();
+            //smallSquare.Draw();
+            //var hugeSquare = HugeFigureFactory.CreateSquare();
+            //hugeSquare.Draw();
+
+            //FormBuilder fBuilder = new FormBuilder();
+            //StudentsButtonsBuilder bBuilder = new StudentsButtonsBuilder();
+            //StudentsWMBuilder wmBuilder = new StudentsWMBuilder();
+            //fBuilder.SetButtonsBuilder(bBuilder);
+            //fBuilder.SetWMBuilder(wmBuilder);
+            //fBuilder.ConstructForm();
+            //Form form = fBuilder.GetForm();
+
+            //Console.WriteLine(form.WelcomeMessage);
+            //foreach (var button in form.Buttons)
+            //{
+            //    Console.Write(button + " ");
+            //}
+            //Console.WriteLine("\n");
+
+            //RealBankAccount realBankAccount = new();
+            //ProxyBankAccount proxyBankAccount = new(realBankAccount);
+
+            //try
+            //{
+            //    proxyBankAccount.GetBalance();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+            //proxyBankAccount.AuthenticateUser();
+            //proxyBankAccount.Deposit(10);
+            //Console.WriteLine(proxyBankAccount.GetBalance());
+
+            //try
+            //{
+            //    proxyBankAccount.Withdraw(20);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+            //proxyBankAccount.Withdraw(5);
+            //Console.WriteLine(proxyBankAccount.GetBalance());
+
+            Caretaker c = new();
+
+            Invoker app = new();
+            Receiver r = new(c);
+            SetTemperatureCommand setTemperature = new(r, app);
+            TurnLightsCommand turnLights = new(r, app);
+            UndoCommand undo = new(r, app);
+
+
+            app.SetTemperature(5);
+            app.SetLights(false);
+            app.ExecuteCommand(setTemperature);
+            app.ExecuteCommand(turnLights);
+            app.SetTemperature(10);
+            app.ExecuteCommand(setTemperature);
+            app.ExecuteCommand(undo);
 
         }
     }

@@ -8,4 +8,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Memento\" />
+    <Folder Include="Visitor\" />
+  </ItemGroup>
+
 </Project>
